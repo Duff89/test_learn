@@ -23,3 +23,11 @@ class ProductPage(BasePage):
         assert price_of_book in price_in_basket, \
             f'different price! now in basket: {self.price_in_basket}, ' \
             f'cost of book:{self.price_of_book}'
+
+    def presented_text_succes_to_add_in_basket(self):
+        assert self.is_not_element_present(*ProductPageLocators.MESSAGE_ITEM_HAS_BEEN_ADD_TO_BASKET), \
+            "message \'add in busket succes\' disappeared"
+
+    def text_succes_to_add_in_basket_disappeared(self):
+        assert self.is_disappeared(
+            *ProductPageLocators.MESSAGE_ITEM_HAS_BEEN_ADD_TO_BASKET), "message \'add in busket succes\' exist"
