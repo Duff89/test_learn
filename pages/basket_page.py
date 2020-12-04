@@ -9,6 +9,9 @@ from selenium import webdriver
 
 
 class BasketPage(BasePage):
-    def basket_is_empty(self):
+    def message_basket_is_empty(self):
         assert "Your basket is empty" in self.browser.find_element(
-            *BasketPageLocators.MESSAGE_BASKET_IS_EMPTY).text, "Basket is not empty"
+            *BasketPageLocators.MESSAGE_BASKET_IS_EMPTY).text, "Message:Basket is not empty"
+
+    def no_item_in_basket(self):
+        assert self.is_disappeared(*BasketPageLocators.ITEMS_PRESENT_IN_BASKET), "Basket is not empty"
